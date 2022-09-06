@@ -89,6 +89,7 @@ except Exception as excpt:
 #     exit(1)
 
 try:
+    index = 0
     last_height = 0
     for i in range(1, 200):
         
@@ -96,81 +97,84 @@ try:
         try:
             tweet_divs = browser.page_source
             obj = BeautifulSoup(tweet_divs, "html.parser")
-            # content = obj.find_all("div", class_="content")
-            content = obj.find_all("div", {"data-testid": "cellInnerDiv"})
-            # content = browser.find_element(by=By.XPATH, value="//div[contains(@data-testid,'cellInnerDiv')]")
-            # print(content)
+            
+            try:
+                content = obj.find_all("div", {"data-testid": "cellInnerDiv"})
+                # content = browser.find_element(by=By.XPATH, value="//div[contains(@data-testid,'cellInnerDiv')]")
 
-            # print("content printed")
-            print(len(content), "tweets.")
-            index = 0
-            for c in content:
-                index += 1
-                try:
-                    tweets = c.find("div", {"data-testid": "tweetText"}).strings
-                    tweet_text = "".join(tweets)
-                    print(tweet_text)
-                    print("-----------")
-                except Exception as e:
-                    print("Erro ao find tweets")
-                    print(f"Tivemos uma falha: {e}")
+                
+                for c in content:
+                    index += 1
+                    try:
+                        tweets = c.find("div", {"data-testid": "tweetText"}).strings
+                        tweet_text = "".join(tweets)
+                        print(tweet_text)
+                        print("-----------")
 
-                # Open the file in write mode
-                
-                try:
-                    file_name = f"tweet_{index}.txt"
-                    myfile = open(f"tweets/{file_name}", 'w')
-                    myfile.write(tweet_text)
-                except Exception as e:
-                    print(f"Tivemos uma falha: {e}")
-                
-                # try:
-                #     name = (c.find_all("span", class_="css-901oao")[0].string).strip()
-                # except Exception as e:
-                #     name = "Anonymous"
-                #     print(f"Tivemos uma falha: {e}")
-                
-                # try:
-                #     date = (c.find_all("time")[0].string).strip()
-                # except Exception as e:
-                #     date = "Erro no find_all date"
-                #     print(f"Tivemos uma falha: {e}")
+                        try:
+                            file_name = f"tweet_{index}.txt"
+                            myfile = open(f"tweets/{file_name}", 'w')
+                            myfile.write(tweet_text)
+                        except Exception as e:
+                            print(f"Tivemos uma falha: {e}")
 
-                # try:
-                #     datestring = str(c.find_all("span", class_="_timestamp")[0])
-                #     print(datestring)
-                #     datestring = datestring[datestring.index("data-time")+11:]
-                #     datestring = datestring[:datestring.index("\"")]
-                #     print(datestring)
-                # except Exception as e:
-                #     datestring = "Erro no find_all datestring"
-                #     print(f"Tivemos uma falha: {e}")
-                
-                # try:
-                #     write_csv(datestring,tweet_text,name)
-                # except Exception as e:
-                #     print("CSV error: ", e)
+                    except Exception as e:
+                        print("Erro ao find tweets")
+                        print(f"Tivemos uma falha: {e}")
+
+                    # Open the file in write mode
+                    
+                    
+
+                    # SCROLL DOWN
+                    browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+
+                    # WAIT FOR THE PAGE TO LOAD
+                    sleep(3)
+
+                    # CALCULATE NEW SCROLL HEIGHT
+                    new_height = browser.execute_script("return document.body.scrollHeight")
+
+                    if new_height == last_height:
+                        break
+                    last_height = new_height
+                    # --------------------
+                    
+                    # try:
+                    #     name = (c.find_all("span", class_="css-901oao")[0].string).strip()
+                    # except Exception as e:
+                    #     name = "Anonymous"
+                    #     print(f"Tivemos uma falha: {e}")
+                    
+                    # try:
+                    #     date = (c.find_all("time")[0].string).strip()
+                    # except Exception as e:
+                    #     date = "Erro no find_all date"
+                    #     print(f"Tivemos uma falha: {e}")
+
+                    # try:
+                    #     datestring = str(c.find_all("span", class_="_timestamp")[0])
+                    #     print(datestring)
+                    #     datestring = datestring[datestring.index("data-time")+11:]
+                    #     datestring = datestring[:datestring.index("\"")]
+                    #     print(datestring)
+                    # except Exception as e:
+                    #     datestring = "Erro no find_all datestring"
+                    #     print(f"Tivemos uma falha: {e}")
+                    
+                    # try:
+                    #     write_csv(datestring,tweet_text,name)
+                    # except Exception as e:
+                    #     print("CSV error: ", e)
+            except Exception as e:
+                print('Erro ao procurar content')
 
         except Exception as e:
             print("Something went wrong!")
             print(e)
             browser.quit()
         # --------------------
-
-
-        # SCROLL DOWN
-        browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-
-        # WAIT FOR THE PAGE TO LOAD
-        sleep(3)
-
-        # CALCULATE NEW SCROLL HEIGHT
-        new_height = browser.execute_script("return document.body.scrollHeight")
-
-        if new_height == last_height:
-            break
-        last_height = new_height
-        # --------------------
+        
 except Exception as e:
     print(f"Tivemos um problema: {e}")
 
