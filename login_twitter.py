@@ -130,7 +130,7 @@ try:
                     browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
                     # WAIT FOR THE PAGE TO LOAD
-                    sleep(3)
+                    sleep(4)
 
                     # CALCULATE NEW SCROLL HEIGHT
                     new_height = browser.execute_script("return document.body.scrollHeight")
