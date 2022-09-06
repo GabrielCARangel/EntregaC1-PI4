@@ -1,24 +1,12 @@
-1662468172084	geckodriver	INFO	Listening on 127.0.0.1:52798
-1662468175036	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52799" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Gabriel\\AppData\\Local\\Temp\\rust_mozprofileeYUR9x"
-1662468175824	Marionette	INFO	Marionette enabled
-1662468175840	Marionette	INFO	Listening on port 52808
-WebDriver BiDi listening on ws://localhost:52799
-Read port: 52808
-1662468176557	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Gabriel\\AppData\\Local\\Temp\\rust_mozprofileeYUR9x\\search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:52799/devtools/browser/9fdd9e53-a891-46aa-bb06-a0cdc131e420
-console.warn: LoginRecipes: "Falling back to a synchronous message for: https://twitter.com."
-1662468295665	Marionette	INFO	Stopped listening on port 52808
-console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
-1662468401390	geckodriver	INFO	Listening on 127.0.0.1:52895
-1662468404463	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "52896" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Gabriel\\AppData\\Local\\Temp\\rust_mozprofilehv3eP6"
-1662468405895	Marionette	INFO	Marionette enabled
-1662468405900	Marionette	INFO	Listening on port 52905
-WebDriver BiDi listening on ws://localhost:52896
-Read port: 52905
-1662468406382	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Gabriel\\AppData\\Local\\Temp\\rust_mozprofilehv3eP6\\search.json.mozlz4", (void 0)))
-DevTools listening on ws://localhost:52896/devtools/browser/96d9a867-1725-4346-acda-4de2889385c1
+1662504118112	geckodriver	INFO	Listening on 127.0.0.1:51701
+1662504121176	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "51702" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Gabriel\\AppData\\Local\\Temp\\rust_mozprofileBoROQu"
+1662504121529	Marionette	INFO	Marionette enabled
+1662504121534	Marionette	INFO	Listening on port 51711
+WebDriver BiDi listening on ws://localhost:51702
+Read port: 51711
+1662504122008	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Gabriel\\AppData\\Local\\Temp\\rust_mozprofileBoROQu\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:51702/devtools/browser/c7298632-fdaf-424c-87a5-dd7bdc7c1001
 console.error: services.settings: 
   main/query-stripping Signature failed  InvalidSignatureError: Invalid content signature (main/query-stripping)
 console.error: services.settings: 
@@ -27,4 +15,30 @@ console.warn: services.settings: main/query-stripping Signature verified failed.
 console.error: services.settings: 
   main/query-stripping Signature failed again InvalidSignatureError: Invalid content signature (main/query-stripping)
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://twitter.com."
-1662468681691	Marionette	INFO	Stopped listening on port 52905
+console.error: services.settings: 
+  main/query-stripping Signature failed  InvalidSignatureError: Invalid content signature (main/query-stripping)
+console.error: services.settings: 
+  main/query-stripping local data was corrupted
+console.warn: services.settings: main/query-stripping Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/query-stripping Signature failed again InvalidSignatureError: Invalid content signature (main/query-stripping)
+console.error: services.settings: 
+  Message: InvalidSignatureError: Invalid content signature (main/query-stripping)
+  Stack:
+    InvalidSignatureError@resource://services-settings/RemoteSettingsClient.jsm:169:5
+_validateCollectionSignature@resource://services-settings/RemoteSettingsClient.jsm:977:13
+
+console.error: services.settings: 
+  main/addons-manager-settings Signature failed  InvalidSignatureError: Invalid content signature (main/addons-manager-settings)
+console.error: services.settings: 
+  main/addons-manager-settings local data was corrupted
+console.warn: services.settings: main/addons-manager-settings Signature verified failed. Retry from scratch
+console.error: services.settings: 
+  main/addons-manager-settings Signature failed again InvalidSignatureError: Invalid content signature (main/addons-manager-settings)
+console.error: services.settings: 
+  Message: InvalidSignatureError: Invalid content signature (main/addons-manager-settings)
+  Stack:
+    InvalidSignatureError@resource://services-settings/RemoteSettingsClient.jsm:169:5
+_validateCollectionSignature@resource://services-settings/RemoteSettingsClient.jsm:977:13
+
+1662504724338	Marionette	INFO	Stopped listening on port 51711

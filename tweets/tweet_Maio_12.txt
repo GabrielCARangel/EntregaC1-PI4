@@ -1,0 +1,1 @@
+Tip #5 Ditch DBaaS for Kubernetes. Learn how to realize it ->
