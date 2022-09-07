@@ -146,43 +146,18 @@ for url in URLS_Pesquisa:
                                     # --------------------
 
                             except Exception as e:
-                                print("Erro ao find tweets")
+                                print("Erro ao achar tweets")
                                 print(f"Tivemos uma falha: {e}")
                         else:
                             print("-- TWEET REPETIDO --")
                         
-                        # try:
-                        #     name = (c.find_all("span", class_="css-901oao")[0].string).strip()
-                        # except Exception as e:
-                        #     name = "Anonymous"
-                        #     print(f"Tivemos uma falha: {e}")
-                        
-                        # try:
-                        #     date = (c.find_all("time")[0].string).strip()
-                        # except Exception as e:
-                        #     date = "Erro no find_all date"
-                        #     print(f"Tivemos uma falha: {e}")
-
-                        # try:
-                        #     datestring = str(c.find_all("span", class_="_timestamp")[0])
-                        #     print(datestring)
-                        #     datestring = datestring[datestring.index("data-time")+11:]
-                        #     datestring = datestring[:datestring.index("\"")]
-                        #     print(datestring)
-                        # except Exception as e:
-                        #     datestring = "Erro no find_all datestring"
-                        #     print(f"Tivemos uma falha: {e}")
-                        
-                        # try:
-                        #     write_csv(datestring,tweet_text,name)
-                        # except Exception as e:
-                        #     print("CSV error: ", e)
                 except Exception as e:
                     print('Erro ao procurar content')
+                    print(f"Tivemos uma falha: {e}")
 
             except Exception as e:
-                print("Something went wrong!")
-                print(e)
+                print("Erro ao iniciar scraping!")
+                print(f"Tivemos uma falha: {e}")
                 browser.quit()
             # --------------------
             
@@ -190,7 +165,5 @@ for url in URLS_Pesquisa:
         print(f"Tivemos um problema: {e}")
 
 print("Script finalizado!")
-input("Pressione enter para sair...")
 browser.quit()
 print("Fim...")
-
